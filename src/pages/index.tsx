@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Center, Circle, Flex, Grid, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, Center, Circle, Flex, Grid, SimpleGrid, Text, Link, Button } from '@chakra-ui/react';
 import styled from 'styled-components';
 import {BsTwitter,BsLinkedin,BsGithub} from 'react-icons/bs';
 import Image from 'next/image';
@@ -23,6 +23,7 @@ const StyledWrapper = styled.div`
 
   }
 
+  
   .avatar{
 
    }
@@ -39,6 +40,7 @@ const StyledWrapper = styled.div`
     }
   }
 
+  
   
   .line{
     height:100%;
@@ -64,6 +66,12 @@ const StyledWrapper = styled.div`
     flex:1;    
   }
 
+  .respondImg{
+    @media(max-width: 700px){
+      width:350px;
+      height:200px;
+    }
+  }
 
 
 `
@@ -110,12 +118,12 @@ const NavBar = ()=>{
 const About =()=>{
   return(
 
-    <Box mt='6em' className='padd' >
+    <Box mt='3em' className='padd' >
       <Center>
         <Text className='header'>About Me</Text>
       </Center>
 
-      <Flex align={'center'} mt='1em' direction={{base:'column-reverse',lg:'row'}}>
+      <Flex align={'center'} mt='1em' direction={{base:'column-reverse', lg:'row'}}>
         <Box>
           <Grid templateColumns={'3px 96%'} columnGap={'0.8em'} gap={'1%'}>
             <Box h='100%' w='4px' bg={'var(--col-1)'} fontSize={'1px'} borderRadius='2px' color='transparent' borderX={'px solid var(--col-1)'} >a</Box>      
@@ -243,24 +251,185 @@ const Projects = ()=>{
         <Text className='header'>Selected Projects</Text>
       </Center>
 
-      <Flex mt='2em' direction={{base:'column', lg:'row' }} gap='1.5em'>
+      <Center>
 
-        <Image className='projectImg' 
-         alt='chillsbay' src={'/projects/chillsbay.png'} width={300} height={300} />
+        <Flex mt='3em' align={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
 
-        <Box flex={1}>
-          <Flex color={{ }} gap={'1em'}>
+          <Image className='respondImg'
+          alt='chillsbay' src={'/projects/chillsbay.svg'} width={450} height={250} 
+          />
+
+          <Box flex={1} mt='1em'>
+            <Flex color={{ }} gap={'0.5em'}>
+              
+              <Image src={'/projects/chillsbay-logo.png'} alt='chilsbay-logo' 
+                width={80} height={50} 
+              />
+              <Text fontSize={'25px'}>CHILLS BAY</Text>
+
+            </Flex>
+
+            <Box mt='1em'>
+              <Text fontSize={'20px'}>Pristin capital is an intersection</Text>
+              <Text fontSize={'20px'}>between Private equity and a search</Text>
+              <Text fontSize={'20px'}>fund soley for SME's</Text>
+            </Box>
             
-            <Text fontSize={'18px'}>CHILLSBAY</Text>
+            <Box mt='2em'>
+              <Link fontSize={'12px'} color='' href='#'>web</Link>
+            </Box>
 
-            <Image src={'/projects/chillsbay-logo.png'} alt='chilsbay-logo' 
-             width={50} height={20}  />
+            <Box className='mid'>
+              <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} width={'210px'} p='0.5em'>
 
-          </Flex>
-        </Box>
-        
+                <Flex align={''} gap={''}>
 
-      </Flex>
+                  <Center gap={'1em'} >
+                    <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
+                      GITHUB 
+                    </Button>
+                
+
+                    <Flex gap={'0.5em'} align={'center'}>
+                      <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+
+                      <Link>
+                        <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
+                      </Link>
+                    </Flex>
+
+                  </Center>
+
+                </Flex>
+
+              </Box>
+            </Box>
+
+
+          </Box>
+          
+
+        </Flex>
+      </Center>
+
+
+
+      <Center>
+        <Flex mt='4em' justify={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
+
+          <Image className='respondImg' 
+          alt='priston' src={'/projects/priston.svg'} width={450} height={250} 
+          />
+
+          <Box flex={1} mt='1em'>
+            <Flex color={{ }} gap={'0.5em'}>
+              
+              <Image src={'/projects/pristinLogo.png'} alt='pristinLogo' 
+                width={80} height={50} 
+              />
+              <Text fontSize={'25px'}>PRISTIN CAPITAL</Text>
+
+            </Flex>
+
+            <Box mt='1em'>
+              <Text fontSize={'20px'}>Pristin capital is an intersection</Text>
+              <Text fontSize={'20px'}>between Private equity and a search</Text>
+              <Text fontSize={'20px'}>fund soley for SME's</Text>
+            </Box>
+            
+            <Box mt='2em'>
+              <Link fontSize={'12px'} color='' href='#'>web</Link>
+            </Box>
+
+            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} width={200} p='0.5em'>
+
+              <Flex gap={'1em'}>
+
+                <Center gap={'0.5em'}>
+                  <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
+                    GITHUB 
+                  </Button>
+                
+
+                  <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+
+                  <Link>
+                    <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
+                  </Link>
+
+                </Center>
+
+              </Flex>
+
+            </Box>
+            
+
+
+          </Box>
+          
+
+        </Flex>
+      </Center>
+
+
+
+      <Center>
+        <Flex mt='4em' direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
+
+          <Image className='respondImg' 
+          alt='ark' src={'/projects/ark.svg'} width={450} height={250} 
+          />
+
+          <Box flex={1} mt='1em'>
+            <Flex color={{ }} gap={'0.5em'}>
+              
+              <Image src={'/projects/arkLogo.png'} alt='pristinLogo' 
+                width={40} height={20} 
+              />
+              <Text fontSize={'25px'}>ARK</Text>
+
+            </Flex>
+
+            <Box mt='1em'>
+              <Text fontSize={'20px'}>With ARK, you can book a storage</Text>
+              <Text fontSize={'20px'}>space, move inwithin 24 hours </Text>
+              <Text fontSize={'20px'}>and rest assured that your</Text>
+              <Text fontSize={'20px'}>stored items are secure.</Text>
+            </Box>
+            
+            <Box mt='2em'>
+              <Link fontSize={'12px'} color='' href='#'>web</Link>
+            </Box>
+
+            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} width={200} p='0.5em'>
+
+              <Flex gap={'1em'}>
+
+                <Center gap={'0.5em'}>
+                  <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'1rem'} height={5}>
+                    GITHUB 
+                  </Button>
+                
+
+                  <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+
+                  <Link>
+                    <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
+                  </Link>
+
+                </Center>
+
+              </Flex>
+
+            </Box>
+            
+
+
+          </Box>
+          
+
+        </Flex>
+      </Center>
 
 
 
@@ -273,13 +442,55 @@ const Projects = ()=>{
 
 const Footer = ()=>{
   return(
-    <>
+    <Box mt='7em'>
+      <Center>
+        <Image src={'/projects/happyDayvvo.svg'} alt='happyDayvvo' width={250}  height={200}></Image>
+      </Center>
+
+      <Box>
+        <Box borderBottom={'3px solid'}>
+          <Center>
+            <Text fontSize={{base:'25px', sm:'40px', lg:'40px'}} 
+              bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+              to-l, #7928CA, #FF0080)'
+              bgClip='text'
+              fontWeight='extrabold' >
+              Let's Work Together
+            </Text>
+          </Center>
+        </Box>
+
+        <Center mt='1em' >
+          <IconWrapper>
+            <Flex gap={'3em'} align="center">
+              <a href=''> <BsTwitter /> </a>
+
+              <a href=''> <BsLinkedin /> </a>
+
+              <a href=''> <BsGithub />  </a>
+            </Flex>
+          </IconWrapper>
+
+        </Center>
+
+        <Flex py='1.2em' justify={'center'} mt='4em' >
+      
+          <Flex fontSize={'10px'} gap={'2.5em'} >
+
+            <Text>About Me</Text>
+            <Text>Skills</Text>
+            <Text>Projects</Text>
+
+          </Flex>
 
 
-    
-    
-    
-    </>
+        </Flex>
+
+      </Box>
+
+      
+
+    </Box>
   )
 }
 
@@ -315,7 +526,7 @@ const Home=({className}:{className:string})=> {
           </Box>
 
           <Center className=''>
-            <Box mt='-3.5em'>
+            <Box mt='-1em'>
               <Center>
                 <Image className='avatar' alt='my_avatar' width={270} height={270} src={'/bitmoji.png'} />
               </Center>
@@ -344,9 +555,12 @@ const Home=({className}:{className:string})=> {
                       <Image src='/coverart2.svg' alt='coverart' width={40} height={40} />
                     </Box>
 
-                    <Text fontWeight={'thin'} maxW={{base:'80%',md:'70%', lg:'500px'}} 
-                     textAlign={'center'} fontSize={'32px'} lineHeight={'40px'}  >
-                      I develop ideas and help build a better world through software.
+                    <Text fontWeight={'thin'} 
+                      textAlign={'center'} fontSize={'32px'} lineHeight={'40px'}  >
+                      <Center>
+                        I develop ideas and help build a better world through software.
+                      </Center>
+
                     </Text>
 
                     <Center my='1.2em'>
