@@ -2,6 +2,9 @@ import Head from 'next/head';
 import { Box, Center, Circle, Flex, Grid, SimpleGrid, Text, Link, Button } from '@chakra-ui/react';
 import styled from 'styled-components';
 import {BsTwitter,BsLinkedin,BsGithub} from 'react-icons/bs';
+import {BiMenuAltLeft} from 'react-icons/bi';
+import {IoCloseCircle} from 'react-icons/io5';
+import { Link as ScrollLink } from 'react-scroll'
 import Image from 'next/image';
 
 
@@ -88,6 +91,12 @@ const IconWrapper = styled.div`
   display:grid;
   grid-row-gap:1em;
   color:var(--white);
+  /* .footer-icon {
+    background: linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  } */
+  
 
   @media(min-width:700px){
     grid-row-gap:2em;
@@ -105,20 +114,57 @@ const IconWrapper = styled.div`
 
 `
 
-const NavBar = ()=>{
-  return(
-    <Flex py='1.2em' justify={'flex-end'}>
-      
-      <Flex fontSize={'17px'} gap={'2.5em'}>
+const ResNavBar = () => {
+  return (
+    <Flex 
+      display={{ base: 'flex', lg: 'none' }} w='100%' h='100vh' cursor='pointer' color={'#1A1E22'} pos='relative'
+      bgColor='#D8D2CC' justify='center' align='center' flexDir='column' gap='40px' fontSize={'1.4rem'}
+    >
+      <Button
+        _hover={{ opacity: '1' }} bgColor='transparent'
+        pos='absolute' top='40px' right='20px'
+      >
+        <IoCloseCircle size='2.6rem' />
+      </Button>
+      <ScrollLink to='home' smooth={true} duration={500}>Home</ScrollLink>
+      <ScrollLink to='about' smooth={true} duration={500}>About Me</ScrollLink>
+      <ScrollLink to='skills' smooth={true} duration={500}>Skills</ScrollLink>
+      <ScrollLink to='projects' smooth={true} duration={500}>Projects</ScrollLink>
 
-        <Text>About Me</Text>
-        <Text>Skills</Text>
-        <Text>Projects</Text>
+      <Flex gap={'1.4em'} align="center">
+        <a href=''> <BsTwitter /> </a>
+
+        <a href=''> <BsLinkedin /> </a>
+
+        <a href=''> <BsGithub />  </a>
+      </Flex>
+    </Flex>
+  )
+}
+
+const NavBar = ()=>{
+
+  return(
+    <>
+      <Flex py='1.2rem' justify={'flex-end'} pos='relative'>
+        
+        <Flex
+          fontSize={'17px'} gap={'2.5em'} cursor='pointer' display={{ base: 'none', lg: 'flex' }}
+        >
+          <ScrollLink to='about' smooth={true} duration={500}>About Me</ScrollLink>
+          <ScrollLink to='skills' smooth={true} duration={500}>Skills</ScrollLink>
+          <ScrollLink to='projects' smooth={true} duration={500}>Projects</ScrollLink>
+        </Flex>
+        <Flex
+          display={{ base: 'flex', lg: 'none' }} w='40px' h='40px' cursor='pointer'
+          bgColor='#D8D2CC' borderRadius='50%' justify='center' align='center' onClick={ResNavBar}
+        >
+          <BiMenuAltLeft color='#1A1E22' fontSize={'2.2rem'} />
+        </Flex>
+
 
       </Flex>
-
-
-    </Flex>
+    </>
   )
 }
 
@@ -126,7 +172,7 @@ const NavBar = ()=>{
 const About =()=>{
   return(
 
-    <Box mt='3em' className='padd' >
+    <Box mt='3em' className='padd' id='about'>
       <Center>
         <Text as='div' className='header'>About Me</Text>
       </Center>
@@ -220,7 +266,7 @@ const Skills = ()=>{
   ]
 
   return(
-    <Box mt='2em' className='padd'>
+    <Box mt='2em' className='padd' id='skills'>
       <Center mt='1em'>
           <Text as='div' className='header'>Skills</Text>
       </Center>
@@ -254,7 +300,7 @@ const Skills = ()=>{
 
 const Projects = ()=>{
   return(
-    <Box mt='5em' className='padd'>
+    <Box mt='5em' className='padd' id='projects'>
       <Center mt='1em'>
         <Text as='div' className='header'>Selected Projects</Text>
       </Center>
@@ -455,22 +501,27 @@ const Projects = ()=>{
 
 const Footer = ()=>{
   return(
-    <Box mt='7em'>
+    <Box mt='7em' id='footer'>
       <Center>
         <Image src={'/projects/happyDayvvo.svg'} alt='happyDayvvo' width={250}  height={200}></Image>
       </Center>
 
       <Box>
-        <Box borderBottom={'3px solid'}>
-          <Center>
-            <Text as='div' fontSize={{base:'25px', sm:'40px', lg:'40px'}} 
+        <Box>
+          {/* <Center> */}
+            <Text as='div' fontSize={{base:'25px', sm:'40px', lg:'50px'}} 
               bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
-              to-l, #7928CA, #FF0080)'
-              bgClip='text'
+              to-l, #7928CA, #FF0080)' className='bai-font'
+              bgClip='text' display='block' textAlign='center'
               fontWeight='extrabold' >
               Let's Work Together
             </Text>
-          </Center>
+            <Box
+              w='500px' mx='auto' h='3px'
+              bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+              to-l, #7928CA, #FF0080)'
+            ></Box>
+          {/* </Center> */}
         </Box>
 
         <Center mt='1em' >
@@ -488,11 +539,11 @@ const Footer = ()=>{
 
         <Flex py='1.2em' justify={'center'} mt='4em' >
       
-          <Flex fontSize={'10px'} gap={'2.5em'} >
+          <Flex fontSize={'10px'} gap={'2.5em'} cursor='pointer'>
 
-            <Text>About Me</Text>
-            <Text>Skills</Text>
-            <Text>Projects</Text>
+            <ScrollLink to='about' smooth={true} duration={500}>About Me</ScrollLink>
+            <ScrollLink to='skills' smooth={true} duration={500}>Skills</ScrollLink>
+            <ScrollLink to='projects' smooth={true} duration={500}>Projects</ScrollLink>
 
           </Flex>
 
@@ -518,7 +569,7 @@ const Home=({className}:{className:string})=> {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex className='padd' minH={'100vh'} flexDir='column'   >
+      <Flex className='padd' minH={'100vh'} flexDir='column' id='home'  >
         <NavBar/>
         
         <Box mt='2em' pos={'relative'} >
@@ -571,13 +622,15 @@ const Home=({className}:{className:string})=> {
                     <Text as='div' fontWeight={'thin'} 
                       textAlign={'center'} fontSize={'32px'} lineHeight={'40px'}  >
                       <Center>
-                        I develop ideas and help build a better world through software.
+                        I develop ideas and help build <br/> a better world through <br /> software.
                       </Center>
 
                     </Text>
 
                     <Center my='1.2em'>
+                      <ScrollLink to='footer' smooth={true} duration='500'>
                         <Image className='cursor' src={'/arrow-down.svg'}  alt='arrow-down' height={90} width={60} />
+                      </ScrollLink>
                     </Center>
                   </Box>
                 </Box>
@@ -593,6 +646,8 @@ const Home=({className}:{className:string})=> {
       </Flex>
 
       <About/>
+
+      
 
       <Box h='150px' pos={'relative'} mt='7em'>
 
