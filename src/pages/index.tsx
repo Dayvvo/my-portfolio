@@ -67,10 +67,18 @@ const StyledWrapper = styled.div`
   }
 
   .respondImg{
-    @media(max-width: 700px){
-      width:350px;
-      height:200px;
+    width:350px;
+    height:200px;
+
+    @media(min-width: 700px){
+      width:450px;
+      height: 300px;
     }
+    @media(min-width: 900px){
+      width:500px;
+      height: 350px;
+    }
+
   }
 
 
@@ -120,7 +128,7 @@ const About =()=>{
 
     <Box mt='3em' className='padd' >
       <Center>
-        <Text className='header'>About Me</Text>
+        <Text as='div' className='header'>About Me</Text>
       </Center>
 
       <Flex align={'center'} mt='1em' direction={{base:'column-reverse', lg:'row'}}>
@@ -214,7 +222,7 @@ const Skills = ()=>{
   return(
     <Box mt='2em' className='padd'>
       <Center mt='1em'>
-          <Text className='header'>Skills</Text>
+          <Text as='div' className='header'>Skills</Text>
       </Center>
 
       <SimpleGrid rowGap={'3em'} mt='1.5em' minChildWidth={{base:'150px',lg:'180px'}} 
@@ -248,31 +256,31 @@ const Projects = ()=>{
   return(
     <Box mt='5em' className='padd'>
       <Center mt='1em'>
-        <Text className='header'>Selected Projects</Text>
+        <Text as='div' className='header'>Selected Projects</Text>
       </Center>
 
       <Center>
 
-        <Flex mt='3em' align={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
+        <Flex mt='3em' align={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap={{base:'3em',lg:'5em'}}>
 
           <Image className='respondImg'
           alt='chillsbay' src={'/projects/chillsbay.svg'} width={450} height={250} 
           />
 
           <Box flex={1} mt='1em'>
-            <Flex color={{ }} gap={'0.5em'}>
+            <Flex gap={'0.5em'}>
               
               <Image src={'/projects/chillsbay-logo.png'} alt='chilsbay-logo' 
                 width={80} height={50} 
               />
-              <Text fontSize={'25px'}>CHILLS BAY</Text>
+              <Text as='div' fontSize={'25px'}>CHILLS BAY</Text>
 
             </Flex>
 
             <Box mt='1em'>
-              <Text fontSize={'20px'}>Pristin capital is an intersection</Text>
-              <Text fontSize={'20px'}>between Private equity and a search</Text>
-              <Text fontSize={'20px'}>fund soley for SME's</Text>
+              <Text as='div' fontSize={'20px'}>Pristin capital is an intersection</Text>
+              <Text as='div' fontSize={'20px'}>between Private equity and a search</Text>
+              <Text as='div' fontSize={'20px'}>fund soley for SME's</Text>
             </Box>
             
             <Box mt='2em'>
@@ -310,31 +318,33 @@ const Projects = ()=>{
           
 
         </Flex>
+  
       </Center>
 
 
 
       <Center>
+
         <Flex mt='4em' justify={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
 
           <Image className='respondImg' 
-          alt='priston' src={'/projects/priston.svg'} width={450} height={250} 
+           alt='priston' src={'/projects/priston.svg'} width={450} height={250} 
           />
 
           <Box flex={1} mt='1em'>
-            <Flex color={{ }} gap={'0.5em'}>
+            <Flex  gap={'0.5em'}>
               
               <Image src={'/projects/pristinLogo.png'} alt='pristinLogo' 
                 width={80} height={50} 
               />
-              <Text fontSize={'25px'}>PRISTIN CAPITAL</Text>
+              <Text as='div' fontSize={'25px'}>PRISTIN CAPITAL</Text>
 
             </Flex>
 
             <Box mt='1em'>
-              <Text fontSize={'20px'}>Pristin capital is an intersection</Text>
-              <Text fontSize={'20px'}>between Private equity and a search</Text>
-              <Text fontSize={'20px'}>fund soley for SME's</Text>
+              <Text as='div' fontSize={'20px'}>Pristin capital is an intersection</Text>
+              <Text as='div' fontSize={'20px'}>between Private equity and a search</Text>
+              <Text as='div' fontSize={'20px'}>fund soley for SME's</Text>
             </Box>
             
             <Box mt='2em'>
@@ -369,11 +379,13 @@ const Projects = ()=>{
           
 
         </Flex>
+     
       </Center>
 
 
 
       <Center>
+  
         <Flex mt='4em' direction={{base:'column', sm:'row', lg:'row' }} gap='3em'>
 
           <Image className='respondImg' 
@@ -381,20 +393,20 @@ const Projects = ()=>{
           />
 
           <Box flex={1} mt='1em'>
-            <Flex color={{ }} gap={'0.5em'}>
+            <Flex  gap={'0.5em'}>
               
               <Image src={'/projects/arkLogo.png'} alt='pristinLogo' 
                 width={40} height={20} 
               />
-              <Text fontSize={'25px'}>ARK</Text>
+              <Text as='div' fontSize={'25px'}>ARK</Text>
 
             </Flex>
 
             <Box mt='1em'>
-              <Text fontSize={'20px'}>With ARK, you can book a storage</Text>
-              <Text fontSize={'20px'}>space, move inwithin 24 hours </Text>
-              <Text fontSize={'20px'}>and rest assured that your</Text>
-              <Text fontSize={'20px'}>stored items are secure.</Text>
+              <Text as='div' fontSize={'20px'}>With ARK, you can book a storage</Text>
+              <Text as='div' fontSize={'20px'}>space, move inwithin 24 hours </Text>
+              <Text as='div' fontSize={'20px'}>and rest assured that your</Text>
+              <Text as='div' fontSize={'20px'}>stored items are secure.</Text>
             </Box>
             
             <Box mt='2em'>
@@ -429,6 +441,7 @@ const Projects = ()=>{
           
 
         </Flex>
+  
       </Center>
 
 
@@ -450,7 +463,7 @@ const Footer = ()=>{
       <Box>
         <Box borderBottom={'3px solid'}>
           <Center>
-            <Text fontSize={{base:'25px', sm:'40px', lg:'40px'}} 
+            <Text as='div' fontSize={{base:'25px', sm:'40px', lg:'40px'}} 
               bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
               to-l, #7928CA, #FF0080)'
               bgClip='text'
@@ -533,7 +546,7 @@ const Home=({className}:{className:string})=> {
               <Center>
                 <Box>
                   <Center>
-                    <Text fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Adeyemi David</Text>
+                    <Text as='div' fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Adeyemi David</Text>
                   </Center>
 
                   <Box mt='0.6em' position={'relative'} >
@@ -555,7 +568,7 @@ const Home=({className}:{className:string})=> {
                       <Image src='/coverart2.svg' alt='coverart' width={40} height={40} />
                     </Box>
 
-                    <Text fontWeight={'thin'} 
+                    <Text as='div' fontWeight={'thin'} 
                       textAlign={'center'} fontSize={'32px'} lineHeight={'40px'}  >
                       <Center>
                         I develop ideas and help build a better world through software.
@@ -591,7 +604,7 @@ const Home=({className}:{className:string})=> {
                     
               <Flex align='center' w='15%' key={index} justify='space-between'>
                 <Circle size={'8px'} bg='#FF7E21'></Circle>
-                <Text color='#1A1E22' fontSize={'15px'}> {entry} </Text>
+                <Text as='div' color='#1A1E22' fontSize={'15px'}> {entry} </Text>
               </Flex>
             )
 
@@ -606,7 +619,7 @@ const Home=({className}:{className:string})=> {
                     
               <Flex align='center' w='15%' key={index} justify='space-between'>
                 <Circle size={'8px'} bg='#FF7E21'></Circle>
-                <Text fontSize={'15px'}> {entry} </Text>
+                <Text as='div' fontSize={'15px'}> {entry} </Text>
               </Flex>
             )
 
@@ -618,6 +631,7 @@ const Home=({className}:{className:string})=> {
 
       <Skills/>
 
+  
       <Projects/>
 
 
