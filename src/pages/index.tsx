@@ -6,7 +6,8 @@ import {BiMenuAltLeft} from 'react-icons/bi';
 import {IoCloseCircle} from 'react-icons/io5';
 import { Link as ScrollLink } from 'react-scroll'
 import Image from 'next/image';
-
+import {  useRef} from 'react';
+import {AiFillLock} from 'react-icons/ai'
 
 const StyledWrapper = styled.div`
 
@@ -83,6 +84,29 @@ const StyledWrapper = styled.div`
     }
 
   }
+  
+  .navContainer{
+
+    a{
+      &:hover{
+        border-bottom:2px solid;
+        border-image-slice:1;
+        border-image-source:linear-gradient(0deg, #B16CEA 14.04%, #FF5E69 44.72%, #FF8A56 71.77%, #FFA84B 99.85%);
+      }  
+      
+    }
+  }
+
+  .resNav{
+    position:fixed;
+    top:0;
+    left:-2000px;
+    z-index:100;
+    &.open{
+      transition:1.5s;
+      left:0 !important;
+    }
+  }
 
 
 `
@@ -114,42 +138,50 @@ const IconWrapper = styled.div`
 
 `
 
-const ResNavBar = () => {
-  return (
-    <Flex 
-      display={{ base: 'flex', lg: 'none' }} w='100%' h='100vh' cursor='pointer' color={'#1A1E22'} pos='relative'
-      bgColor='#D8D2CC' justify='center' align='center' flexDir='column' gap='40px' fontSize={'1.4rem'}
-    >
-      <Button
-        _hover={{ opacity: '1' }} bgColor='transparent'
-        pos='absolute' top='40px' right='20px'
-      >
-        <IoCloseCircle size='2.6rem' />
-      </Button>
-      <ScrollLink to='home' smooth={true} duration={500}>Home</ScrollLink>
-      <ScrollLink to='about' smooth={true} duration={500}>About Me</ScrollLink>
-      <ScrollLink to='skills' smooth={true} duration={500}>Skills</ScrollLink>
-      <ScrollLink to='projects' smooth={true} duration={500}>Projects</ScrollLink>
-
-      <Flex gap={'1.4em'} align="center">
-        <a href=''> <BsTwitter /> </a>
-
-        <a href=''> <BsLinkedin /> </a>
-
-        <a href=''> <BsGithub />  </a>
-      </Flex>
-    </Flex>
-  )
-}
 
 const NavBar = ()=>{
 
+  const menuRef = useRef<any>()
+
+  const toggleNav =()=> menuRef?.current?.classList?.toggle('open')
+
   return(
     <>
+
+      <Flex 
+        display={{ base: 'flex', lg: 'none' }}
+        ref={menuRef}
+        w='100%' h='100vh' cursor='pointer' color={'#1A1E22'} pos='relative'
+        bgColor='#D8D2CC' justify='center' align='center' flexDir='column' gap='40px' fontSize={'1.4rem'}
+        className='resNav'
+      >
+        <Button
+          _hover={{ opacity: '1' }} bgColor='transparent'
+          pos='absolute' top='40px' right='20px'
+        >
+          <IoCloseCircle onClick={toggleNav} size='2.6rem' />
+        </Button>
+      
+        <ScrollLink onClick={toggleNav}  to='home' smooth={true} duration={500}>Home</ScrollLink>
+        <ScrollLink onClick={toggleNav}  to='about' smooth={true} duration={500}>About Me</ScrollLink>
+        <ScrollLink onClick={toggleNav} to='skills' smooth={true} duration={500}>Skills</ScrollLink>
+        <ScrollLink onClick={toggleNav} to='projects' smooth={true} duration={500}>Projects</ScrollLink>
+
+        <Flex gap={'1.4em'} align="center">
+          <a href='https://twitter.com/Dayvvo1'  target={"_blank"}> <BsTwitter /> </a>
+
+          <a href='https://www.linkedin.com/in/dayvvo/' target={"_blank"}> <BsLinkedin /> </a>
+
+          <a href='https://github.com/dayvvo' target={'_blank'}> <BsGithub />  </a>
+        </Flex>
+      </Flex>
+
+
       <Flex py='1.2rem' justify={'flex-end'} pos='relative'>
         
         <Flex
           fontSize={'17px'} gap={'2.5em'} cursor='pointer' display={{ base: 'none', lg: 'flex' }}
+          className='navContainer'
         >
           <ScrollLink to='about' smooth={true} duration={500}>About Me</ScrollLink>
           <ScrollLink to='skills' smooth={true} duration={500}>Skills</ScrollLink>
@@ -157,7 +189,8 @@ const NavBar = ()=>{
         </Flex>
         <Flex
           display={{ base: 'flex', lg: 'none' }} w='40px' h='40px' cursor='pointer'
-          bgColor='#D8D2CC' borderRadius='50%' justify='center' align='center' onClick={ResNavBar}
+          bgColor='#D8D2CC' borderRadius='50%' justify='center' align='center' 
+          onClick={toggleNav}         
         >
           <BiMenuAltLeft color='#1A1E22' fontSize={'2.2rem'} />
         </Flex>
@@ -324,9 +357,8 @@ const Projects = ()=>{
             </Flex>
 
             <Box mt='1em'>
-              <Text as='div' fontSize={'20px'}>Pristin capital is an intersection</Text>
-              <Text as='div' fontSize={'20px'}>between Private equity and a search</Text>
-              <Text as='div' fontSize={'20px'}>fund soley for SME's</Text>
+              <Text as='div' fontSize={'20px'}>Find Amazing things to do</Text>
+              <Text as='div' fontSize={'20px'}>Anytime,anywhere in Lagos...</Text>
             </Box>
             
             <Box mt='2em'>
@@ -340,12 +372,14 @@ const Projects = ()=>{
 
                   <Center gap={'1em'} >
                     <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
-                      GITHUB 
+                      <a href="https://github.com/Dayvvo/chillsbay">
+                        GITHUB 
+                      </a>
                     </Button>
                 
 
                     <Flex gap={'0.5em'} align={'center'}>
-                      <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+                      <Link color={'var(--productColor)'} target='_blank' href='https://chillsbay.netlify.app/' fontSize={''}>View Product</Link>
 
                       <Link>
                         <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
@@ -390,24 +424,27 @@ const Projects = ()=>{
             <Box mt='1em'>
               <Text as='div' fontSize={'20px'}>Pristin capital is an intersection</Text>
               <Text as='div' fontSize={'20px'}>between Private equity and a search</Text>
-              <Text as='div' fontSize={'20px'}>fund soley for SME's</Text>
+              <Text as='div' fontSize={'20px'}>fund soley for SME's...</Text>
             </Box>
             
             <Box mt='2em'>
               <Link fontSize={'12px'} color='' href='#'>web</Link>
             </Box>
 
-            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} width={200} p='0.5em'>
+            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={220} p='0.5em'>
 
               <Flex gap={'1em'}>
 
-                <Center gap={'0.5em'}>
+                <Center  gap={'0.5em'}>
                   <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
-                    GITHUB 
+                    <Text mr='0.5em'>
+                      GITHUB 
+                    </Text>
+                    <AiFillLock fontSize={'13px'}/>
                   </Button>
                 
 
-                  <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+                  <Link target={'_blank'}  color={'var(--productColor)'} href='https://pristincapital.com' fontSize={'15px'}>View product </Link>
 
                   <Link>
                     <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
@@ -459,17 +496,20 @@ const Projects = ()=>{
               <Link fontSize={'12px'} color='' href='#'>web</Link>
             </Box>
 
-            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} width={200} p='0.5em'>
+            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={220} p='0.5em'>
 
               <Flex gap={'1em'}>
 
-                <Center gap={'0.5em'}>
-                  <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'1rem'} height={5}>
-                    GITHUB 
+                <Center  gap={'0.5em'}>
+                  <Button bg={'var(--productColor)'} variant='ghost' fontSize={'10px'} borderRadius={'16px'} height={5}>
+                    <Text mr='0.5em'>
+                        GITHUB 
+                    </Text>
+                    <AiFillLock fontSize={'13px'}/>
                   </Button>
                 
 
-                  <Link color={'var(--productColor)'} href='#' fontSize={''}>View Product</Link>
+                  <Link color={'var(--productColor)'} target='_blank'  href='http://www.storeatark.com/' fontSize={'15px'}>View product </Link>
 
                   <Link>
                     <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
@@ -527,11 +567,11 @@ const Footer = ()=>{
         <Center mt='1em' >
           <IconWrapper>
             <Flex gap={'3em'} align="center">
-              <a href=''> <BsTwitter /> </a>
+              <a href='https://twitter.com/Dayvvo1'  target={"_blank"}> <BsTwitter /> </a>
 
-              <a href=''> <BsLinkedin /> </a>
+              <a href='https://www.linkedin.com/in/dayvvo/' target={"_blank"}> <BsLinkedin /> </a>
 
-              <a href=''> <BsGithub />  </a>
+              <a href='https://github.com/dayvvo' target={'_blank'}> <BsGithub />  </a>
             </Flex>
           </IconWrapper>
 
@@ -576,12 +616,12 @@ const Home=({className}:{className:string})=> {
           
           <Box display={{base:'none',lg:'initial'}} pos={'absolute'} top={0} left={0} >
             <IconWrapper>
-              <a href=''> <BsTwitter /> </a>
 
-              <a href=''> <BsLinkedin /> </a>
+              <a href='https://twitter.com/Dayvvo1'  target={"_blank"}> <BsTwitter /> </a>
 
-              <a href=''> <BsGithub />  </a>
-              
+              <a href='https://www.linkedin.com/in/dayvvo/' target={"_blank"}> <BsLinkedin /> </a>
+
+              <a href='https://github.com/dayvvo' target={'_blank'}> <BsGithub />  </a>              
               
           
             </IconWrapper>
