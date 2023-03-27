@@ -291,10 +291,10 @@ const Skills = ()=>{
       text:'TRELLO'
     },
 
-    {
-      img:'/skills/icons8-splunk.png',
-      text:'SPLUNK'
-    },
+    // {
+    //   img:'/skills/icons8-splunk.png',
+    //   text:'SPLUNK'
+    // },
 
   ]
 
