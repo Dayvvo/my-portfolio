@@ -34,6 +34,6 @@ jobs:
         # https://github.com/JamesIves/github-pages-deploy-action
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.PAT }}          
+          token: ${{ secrets.PAT }}          
           branch: gh-pages
           folder: out
