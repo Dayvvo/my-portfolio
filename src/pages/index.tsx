@@ -216,7 +216,7 @@ const About =()=>{
             <Box h='100%' w='4px' bg={'var(--col-1)'} fontSize={'1px'} borderRadius='2px' color='transparent' borderX={'px solid var(--col-1)'} >a</Box>      
             <Box fontSize={'19px'} lineHeight='35px'>
               <Box>
-                Hello! 👋 I’m Adeyemi David, a Software Engineer with more than 4 years of experience 
+                Hello! 👋 I’m Adeyemi David, a Software Engineer with 3 years of experience 
                 building groundbreaking digital products across a variety of industries.
               </Box>
 
