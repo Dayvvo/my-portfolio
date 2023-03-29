@@ -340,7 +340,8 @@ const Projects = ()=>{
 
       <Center>
 
-        <Flex mt='3em' align={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap={{base:'3em',lg:'5em'}}>
+        <Flex mt='3em' align={{base:'initial',lg:'center'}} direction={{base:'column', sm:'row', lg:'row' }} 
+         gap={{base:'3em',lg:'5em'}}>
 
           <Image className='respondImg'
           alt='chillsbay' src={'/projects/chillsbay.svg'} width={450} height={250} 
@@ -496,7 +497,7 @@ const Projects = ()=>{
               <Link fontSize={'12px'} color='' href='#'>web</Link>
             </Box>
 
-            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={220} p='0.5em'>
+            <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={{ base:240,lg:220}} p='0.5em'>
 
               <Flex gap={'1em'}>
 
@@ -641,26 +642,26 @@ const Home=({className}:{className:string})=> {
                   </Center>
 
                   <Box mt='0.6em' position={'relative'} >
-                    <Box position={'absolute'} left='-40px' top='-40px'>
+                    <Box position={'absolute'} left={{base:'-30px',lg:'-40px'}} top={{base:'-50',lg:'-40px'}}>
                       <Image src='/coverart1.svg' alt='coverart' width={40} height={40} />
                     </Box>
 
-                    <Box position={'absolute'} left='-40px' bottom='-20px'>
+                    <Box position={'absolute'} left={{base:'-30px',md:'-35px',lg:'-40px'}} bottom={{ base:'15px', lg:'-20px'}}>
                       <Image src='/coverart4.svg' alt='coverart' width={50} height={60} />
                     </Box>
 
 
-                    <Box position={'absolute'} right='-50px' top='-40px'>
+                    <Box position={'absolute'} right={{base:'-30px',lg:'-50px'}} top={{base:'-60px',sm:'-50px', lg:'-40px'}}>
                       <Image src='/coverart3.svg' alt='coverart' width={50} height={80} />
                     </Box>
 
 
-                    <Box position={'absolute'} right='-20px' bottom='-30px'>
+                    <Box position={'absolute'} right='-20px' bottom={{base:'20px', lg:'-30px'}}>
                       <Image src='/coverart2.svg' alt='coverart' width={40} height={40} />
                     </Box>
 
                     <Text as='div' fontWeight={'thin'} 
-                      textAlign={'center'} fontSize={'32px'} lineHeight={'40px'}  >
+                      textAlign={'center'} fontSize={{base:'22',md:'26px',lg:'32px'}} lineHeight={'40px'}  >
                       <Center>
                         I develop ideas and help build <br/> a better world through <br /> software.
                       </Center>
@@ -668,7 +669,7 @@ const Home=({className}:{className:string})=> {
                     </Text>
 
                     <Center my='1.2em'>
-                      <ScrollLink to='footer' smooth={true} duration='500'>
+                      <ScrollLink to='about' smooth={true} duration={500}>
                         <Image className='cursor' src={'/arrow-down.svg'}  alt='arrow-down' height={90} width={60} />
                       </ScrollLink>
                     </Center>
