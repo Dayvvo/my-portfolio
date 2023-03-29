@@ -103,7 +103,7 @@ const StyledWrapper = styled.div`
     left:-2000px;
     z-index:100;
     &.open{
-      transition:1.5s;
+      transition:1s;
       left:0 !important;
     }
   }
