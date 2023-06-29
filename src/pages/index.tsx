@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import { Box, Center, Circle, Flex, Grid, SimpleGrid, Text, Link, Button } from '@chakra-ui/react';
 import styled from 'styled-components';
-import {BsTwitter,BsLinkedin,BsGithub} from 'react-icons/bs';
+import {BsTwitter,BsLinkedin,BsGithub, BsFillTelephoneInboundFill, BsEnvelope} from 'react-icons/bs';
 import {BiMenuAltLeft} from 'react-icons/bi';
 import {IoCloseCircle} from 'react-icons/io5';
 import { Link as ScrollLink } from 'react-scroll'
 import Image from 'next/image';
 import {  useRef} from 'react';
 import {AiFillLock} from 'react-icons/ai'
-
+import {FaMapMarkerAlt} from 'react-icons/fa'
 const StyledWrapper = styled.div`
 
   .padd{
@@ -216,7 +216,7 @@ const About =()=>{
             <Box h='100%' w='4px' bg={'var(--col-1)'} fontSize={'1px'} borderRadius='2px' color='transparent' borderX={'px solid var(--col-1)'} >a</Box>      
             <Box fontSize={'19px'} lineHeight='35px'>
               <Box>
-                Hello! 👋 I’m Adeyemi David, a Software Engineer with more than 4 years of experience 
+                Hello! 👋 I’m Adeyemi Matthew, a Software Engineer with more than 4 years of experience 
                 building groundbreaking digital products across a variety of industries.
               </Box>
 
@@ -312,7 +312,9 @@ const Skills = ()=>{
           <Center minH={'90px'} key={index}>
             <Box>
               <Center>
-                <Image  src={entry.img} alt='text' width={100} height={120} />
+                <Image  src={entry.img} alt={entry?.img} 
+                 width={100} height={120} 
+                />
               </Center>
               <Center mt='0.5em' fontSize={'15px'}>
                 {entry.text}
@@ -335,8 +337,126 @@ const Projects = ()=>{
   return(
     <Box mt='5em' className='padd' id='projects'>
       <Center mt='1em'>
-        <Text as='div' className='header'>Selected Projects</Text>
+        <Text as='div' className='header'>Work Experience</Text>
       </Center>
+
+      <Center>
+
+        <Flex mt='3em' align={'center'} direction={{base:'column', sm:'row', lg:'row' }} gap={{base:'3em',lg:'5em'}}>
+
+          <Image className='respondImg'
+          alt='chillsbay' src={'/projects/peepsdb.png'} width={250} height={250} 
+          />
+
+          <Box flex={1} mt='1em'>
+            <Flex gap={'0.5em'}>
+              
+              <Image src={'/projects/sjultra-logo.png'} alt='chilsbay-logo' 
+                width={80} height={50} 
+              />
+              <Text as='div' fontSize={'25px'}>SJUTRA.INC</Text>
+
+            </Flex>
+
+            <Box mt='1em'>
+              <Text as='div' fontSize={'20px'}>Develop high-impact strategies  </Text>
+              <Text as='div' fontSize={'20px'}>
+                that drive effective digital  
+              </Text>
+              <Text as='div' fontSize={'20px'}>
+                business transformation
+              </Text>
+
+            </Box>
+            
+            <Box mt='2em'>
+              <Link fontSize={'12px'} color='' href='#'>web</Link>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Role: </Text>
+
+                <Text as='div' fontSize={{base:'20px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  Software Engineer(Full Stack)
+                </Text>
+              </Flex>
+
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Date: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  MAY 2022-PRESENT
+                </Text>
+              </Flex>
+
+
+            </Box>
+
+
+            <Box className='mid'>
+              <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxWidth={'220px'} p='0.5em'>
+
+                <Flex className='xcla' align={''} gap={''}>
+
+                  <Center  gap={'0.5em'}>
+                    <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
+                      <Text mr='0.5em'>
+                        GITHUB 
+                      </Text>
+                      <AiFillLock fontSize={'13px'}/>
+                    </Button>
+                  
+
+                    <Link target={'_blank'}  color={'var(--productColor)'} href='https://pristincapital.com' fontSize={'15px'}>View product </Link>
+
+                    <Link>
+                      <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
+                    </Link>
+
+                  </Center>
+
+
+                  {/* <Center gap={'1em'} >
+                    <Button bg={'var(--productColor)'} fontSize={'10px'} borderRadius={'16px'} height={5}>
+                      <a href="https://github.com/Dayvvo/chillsbay">
+                        GITHUB 
+                      </a>
+                    </Button>
+                
+
+                    <Flex gap={'0.5em'} align={'center'}>
+                      <Link color={'var(--productColor)'} target='_blank' href='https://chillsbay.netlify.app/' fontSize={''}>View Product</Link>
+
+                      <Link>
+                        <Image src={'/projects/arrowRight.svg'} alt='arrowRight' width={10} height={5} />
+                      </Link>
+                    </Flex>
+
+                  </Center> */}
+
+                </Flex>
+
+              </Box>
+            </Box>
+
+
+          </Box>
+          
+
+        </Flex>
+  
+      </Center>
+
 
       <Center>
 
@@ -363,6 +483,35 @@ const Projects = ()=>{
             
             <Box mt='2em'>
               <Link fontSize={'12px'} color='' href='#'>web</Link>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Role: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  Front end engineer
+                </Text>
+              </Flex>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Date: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  JAN 2022-MARCH 2022
+                </Text>
+              </Flex>
+
+
+
             </Box>
 
             <Box className='mid'>
@@ -429,6 +578,36 @@ const Projects = ()=>{
             
             <Box mt='2em'>
               <Link fontSize={'12px'} color='' href='#'>web</Link>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Role: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  Front end engineer
+                </Text>
+              </Flex>
+
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Date: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  JAN 2021-OCTOBER 2021
+                </Text>
+              </Flex>
+
+
+
             </Box>
 
             <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={220} p='0.5em'>
@@ -494,7 +673,37 @@ const Projects = ()=>{
             
             <Box mt='2em'>
               <Link fontSize={'12px'} color='' href='#'>web</Link>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Role: </Text>
+
+                <Text as='div' fontSize={{base:'20px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  Front end engineer
+                </Text>
+              </Flex>
+
+              <Flex gap='.6em' align={'center'} mt='1em'>
+
+                <Text fontSize={'15px'}> Date: </Text>
+
+                <Text as='div' fontSize={{base:'25px',}} 
+                bgGradient='linear(90deg, #B16CEA 14.06%, #FF5E69 44.79%, #FF8A56 71.87%, #FFA84B 100%);
+                to-l, #7928CA, #FF0080)' className='bai-font'
+                bgClip='text' display='block' textAlign='center'
+                fontWeight='extrabold' >
+                  MARCH 2023-OCTOBER 2023f
+                </Text>
+              </Flex>
+
+
+
             </Box>
+
 
             <Box mt='2em' bg={'var(--col-1)'} borderRadius={'18px'} flex={1} maxW={220} p='0.5em'>
 
@@ -577,7 +786,38 @@ const Footer = ()=>{
 
         </Center>
 
-        <Flex py='1.2em' justify={'center'} mt='4em' >
+        <Center py='0.7em' mt='1.5em' >
+          <Box>
+
+            <Flex fontSize={'10px'} gap={'2.5em'} cursor='pointer'>
+              <Flex gap='0.7em' align='center'>
+                <BsFillTelephoneInboundFill fontSize={'20px'}/>
+                <a href='#'> 08060060099 </a>
+              </Flex>
+
+              <Flex gap='0.7em' align='center'>
+                <FaMapMarkerAlt fontSize={'20px'}/>
+                <a href='#'>No 15 Shooting Range Kabala Doki  </a>
+              </Flex>
+
+              <Flex gap='0.7em' align='center'>
+                <BsEnvelope fontSize={'20px'}/>
+                <a href = "mailto:dyvvoo@gmail.com">dyvvoo@gmail.com</a>            
+              </Flex>
+
+            </Flex>
+
+            <Center mt='1em' fontSize={'14px'}>
+              This site is owned and operated by Matthew Adeyemi
+            </Center>
+          </Box>
+
+
+        </Center>
+
+
+
+        <Flex py='1.2em' justify={'center'} mt='2em' >
       
           <Flex fontSize={'10px'} gap={'2.5em'} cursor='pointer'>
 
@@ -617,7 +857,7 @@ const Home=({className}:{className:string})=> {
           <Box display={{base:'none',lg:'initial'}} pos={'absolute'} top={0} left={0} >
             <IconWrapper>
 
-              <a href='https://twitter.com/Dayvvo1'  target={"_blank"}> <BsTwitter /> </a>
+              <a href='https://twitter.com/Dayvvo'  target={"_blank"}> <BsTwitter /> </a>
 
               <a href='https://www.linkedin.com/in/dayvvo/' target={"_blank"}> <BsLinkedin /> </a>
 
@@ -637,7 +877,7 @@ const Home=({className}:{className:string})=> {
               <Center>
                 <Box>
                   <Center>
-                    <Text as='div' fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Adeyemi David</Text>
+                    <Text as='div' fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Adeyemi Matthew</Text>
                   </Center>
 
                   <Box mt='0.6em' position={'relative'} >
