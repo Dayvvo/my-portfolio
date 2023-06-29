@@ -216,7 +216,7 @@ const About =()=>{
             <Box h='100%' w='4px' bg={'var(--col-1)'} fontSize={'1px'} borderRadius='2px' color='transparent' borderX={'px solid var(--col-1)'} >a</Box>      
             <Box fontSize={'19px'} lineHeight='35px'>
               <Box>
-                Hello! 👋 I’m Adeyemi Matthew, a Software Engineer with more than 4 years of experience 
+                Hello! 👋 I’m Matthre Adeyemi, a Software Engineer with more than 4 years of experience 
                 building groundbreaking digital products across a variety of industries.
               </Box>
 
@@ -877,7 +877,7 @@ const Home=({className}:{className:string})=> {
               <Center>
                 <Box>
                   <Center>
-                    <Text as='div' fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Adeyemi Matthew</Text>
+                    <Text as='div' fontWeight={600} fontSize={'20px'} mt='1.4em' >I'm Matthre Adeyemi</Text>
                   </Center>
 
                   <Box mt='0.6em' position={'relative'} >
